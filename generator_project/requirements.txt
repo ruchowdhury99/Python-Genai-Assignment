@@ -1,0 +1,12 @@
+langchain>=0.1.0
+langchain-community>=0.0.19
+langchain-huggingface
+unstructured
+pypdf
+python-docx
+psycopg2-binary
+pgvector
+sentence-transformers
+python-dotenv
+langchain-groq
+groq
