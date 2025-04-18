@@ -1,5 +1,6 @@
 ## LANGGRAPH AI GENERATOR BACKEND
 
+---
 This project is an **AI-driven backend generator** powered by LangGraph. Given a Software Requirements Specification (SRS) document, it uses a combination of **RAG (Retrieval-Augmented Generation)** and **code scaffolding** to automatically build a FastAPI backend, including database schemas, endpoints, business logic, and tests.
 
 ---
