@@ -1,3 +1,11 @@
+
+                                            # EXTRACT FUNCTIONAL SPECS
+
+# -- Takes the retrieved  context
+# -- Feeds it into LLM
+# -- Uses a custom prompt to extract functional details
+# -- Parses the output JSON 
+
 import os
 import json
 import logging
@@ -32,6 +40,7 @@ def parse_requirements(
     Raises:
         ValueError: If the LLM output does not contain valid JSON.
     """
+    
     logger.info("Calling retrieve_context to extract requirements JSON string...")
     raw_output = retrieve_context(
         vector_store=vector_store,
@@ -42,6 +51,7 @@ def parse_requirements(
 
     # Clean and extract JSON substring
     cleaned = raw_output.strip()
+
     # Remove markdown code fences
     if cleaned.startswith("```"):
         cleaned = cleaned.strip("`\n ")
