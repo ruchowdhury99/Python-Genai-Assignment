@@ -1,4 +1,9 @@
-# generator_project/main.py
+
+                                    # ENTRY POINT TO TRIGGER AND RUN THE LANGGRAPH
+
+#   1) Loading environment variables
+#   2) Ingesting an SRS document into a PGVector collection
+#   3) Running a retrieval-based QA chain to extract functional requirements
 
 import os
 from dotenv import load_dotenv
