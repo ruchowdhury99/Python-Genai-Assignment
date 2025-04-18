@@ -1,3 +1,12 @@
+
+                                             # LOADS AND CHUNKS THE SRS
+
+# -- Takes the uploaded SRS document
+# -- Reads it content
+# -- Splits into smaller text chunks
+# -- Embeds each chunk using an embedding model
+# -- Stores the embeddings in a vector database
+
 import os
 import logging
 
@@ -29,7 +38,9 @@ def ingest_srs(
     Returns:
         PGVector: The vector store instance containing the uploaded embeddings.
     """
-    # Helper: load document
+
+    # Helps loading the document
+
     ext = os.path.splitext(document_path)[1].lower()
     if ext == ".txt":
         loader = TextLoader(document_path, encoding="utf-8")
@@ -45,6 +56,7 @@ def ingest_srs(
     logger.info("Loaded %d pages/sections", len(documents))
 
     # Split into chunks
+
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap
@@ -57,6 +69,7 @@ def ingest_srs(
     logger.info("Generated %d chunks", len(chunks))
 
     # Create embeddings and vector store
+    
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
     logger.info("Creating PGVector store '%s' at %s", collection_name, connection_string)
     vector_store = PGVector.from_documents(
